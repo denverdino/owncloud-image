@@ -13,7 +13,6 @@ if [ ! -e '/var/www/html/version.php' ]; then
 	    sed -i "s/conf_dbhost/mysql:3306/g" /root/owncloud_autoconfig.php
 
 	    cp /root/owncloud_autoconfig.php /var/www/html/config/autoconfig.php
-	    cat /var/www/html/config/autoconfig.php
 	fi
 
 	chown -R www-data /var/www/html
