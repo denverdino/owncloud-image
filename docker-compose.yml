@@ -1,0 +1,19 @@
+ocweb:
+  build: .
+  ports:
+    - '80:80'
+  restart: always
+  links:
+    - 'ocdb:mysql'
+  volumes:
+    - '/home/data/files/owncloud:/var/www/html/data'  
+ocdb:
+  image: mysql:5.7
+  environment:
+    MYSQL_ROOT_PASSWORD: passw0rd
+    MYSQL_DATABASE: owncloud
+    MYSQL_USER: owncloud
+    MYSQL_PASSWORD: passw0rd
+  volumes:
+    - '/home/data/mysql/owncloud:/var/lib/mysql'
+  restart: always
